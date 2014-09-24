@@ -13,7 +13,8 @@ public class GrayCode {
 	public ArrayList<Integer> grayCode(int n) {
 		ArrayList<Integer> result = new ArrayList<Integer>();
 		if(n ==0){
-			return null;
+			result.add(0);
+			return result;
 		}
 		
 		if( n<= 1){
