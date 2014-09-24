@@ -1,7 +1,5 @@
 package nyu.tlj.leetcode.solution;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import nyu.tlj.leetcode.common.ListNode;
 
