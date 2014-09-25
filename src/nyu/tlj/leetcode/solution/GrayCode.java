@@ -1,7 +1,6 @@
 package nyu.tlj.leetcode.solution;
 
 import java.util.ArrayList;
-import java.util.List;
 //http://huntfor.iteye.com/blog/2060142
 public class GrayCode {
 
