@@ -1,5 +1,6 @@
 package nyu.tlj.leetcode.solution;
 //http://www.cnblogs.com/AnnieKim/archive/2013/04/25/3041982.html
+//http://huntfor.iteye.com/blog/2077967
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
