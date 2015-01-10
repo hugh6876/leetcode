@@ -7,7 +7,6 @@ public class PalindromPartitioningII {
 		PalindromPartitioningII pIi = new PalindromPartitioningII();
 		pIi.minCut("bb");
 	}
-
 	public int minCut(String s) {
 		if (s == null || s.length() == 0) {
 			return 0;
@@ -15,24 +14,48 @@ public class PalindromPartitioningII {
 		boolean[][] isPalindrone = getIsPalindrone(s);
 		int[] dp = new int[s.length() + 1];
 		dp[0] = 0;
-		dp[1] = 0;
-		for (int i = 1; i < s.length(); i++) {
-			dp[i] = Integer.MAX_VALUE;
-			if (isPalindrone[0][i] == true) {
+		for(int i = 1; i < s.length(); i++ ) {
+			if(isPalindrone[0][i] == true ){
 				dp[i] = 0;
 				continue;
 			}
-			for (int j = 0; j < i; j++) {
-				if (isPalindrone[j + 1][i] == true
-						&& dp[j] != Integer.MAX_VALUE) {
-
-					dp[i] = Math.min(dp[j] + 1, dp[i]);
+			dp[i] = Integer.MAX_VALUE;
+			for( int j = 0 ; j < i; j++ ) {
+				if( isPalindrone[j+1][i] == true && ( dp[j] + 1 ) < dp[i] ) {
+					dp[i] = dp[j] + 1;
 				}
+				
 			}
 		}
 		return dp[s.length() - 1];
 
 	}
+
+//	public int minCut(String s) {
+//		if (s == null || s.length() == 0) {
+//			return 0;
+//		}
+//		boolean[][] isPalindrone = getIsPalindrone(s);
+//		int[] dp = new int[s.length() + 1];
+//		dp[0] = 0;
+//		dp[1] = 0;
+//		for (int i = 1; i < s.length(); i++) {
+//			dp[i] = Integer.MAX_VALUE;
+//			if (isPalindrone[0][i] == true) {
+//				dp[i] = 0;
+//				continue;
+//			}
+//			for (int j = 0; j < i; j++) {
+//				if (isPalindrone[j + 1][i] == true
+//						&& dp[j] != Integer.MAX_VALUE) {
+//
+//					dp[i] = Math.min(dp[j] + 1, dp[i]);
+//				}
+//			}
+//		}
+//		return dp[s.length() - 1];
+//
+//	}
 
 	private boolean isPalindrome(String s, int start, int end) {
 		for (int i = start, j = end; i < j; i++, j--) {

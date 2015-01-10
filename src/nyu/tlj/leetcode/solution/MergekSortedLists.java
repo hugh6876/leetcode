@@ -29,9 +29,9 @@ public class MergekSortedLists {
 		
 	}
 	public ListNode mergeKLists(List<ListNode> lists) {
-		ListNode dummy = new ListNode(0);
 		ListNode cur = new ListNode(0);
-		
+	    ListNode dummy = new ListNode(0);
+	 
 		if(lists == null || lists.size() == 0){
 			return null;
 		}
@@ -44,8 +44,15 @@ public class MergekSortedLists {
 				heap.add(cur);
 			}
 		}
-		cur = dummy;
-		dummy = cur;
+		
+        if( ! heap.isEmpty() ) {
+            cur = heap.poll();
+            dummy.next = cur;
+            if( cur.next != null ){
+                heap.add(cur.next);
+            }
+        }
+        
 		while(  !heap.isEmpty() ){
 			cur.next = heap.poll();
 			cur = cur.next;
@@ -54,8 +61,6 @@ public class MergekSortedLists {
 			}
 			
 		}
-		
-		
 		
 		return dummy.next;
 	}
