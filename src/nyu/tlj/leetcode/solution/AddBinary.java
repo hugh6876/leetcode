@@ -21,10 +21,10 @@ public class AddBinary {
 		int carry = 0,sum, numa, numb;
 		while(lena >= 0 || lenb >= 0 ){
 			sum = 0;
-			numa = lena < 0 ? 0 : Integer.valueOf( a.charAt(lena--) )  - 48;
-			numb = lenb < 0 ? 0 : Integer.valueOf( b.charAt(lenb--) )  - 48;
+			numa = lena < 0 ? 0 : a.charAt(lena--) -  '0';
+			numb = lenb < 0 ? 0 : b.charAt(lenb--) -  '0';
 			sum = numa + numb + carry;
-			System.out.println(sum);
+			//System.out.println(sum);
 			carry = 0;
 			if( sum >= 2 ) {
 				carry = 1;
