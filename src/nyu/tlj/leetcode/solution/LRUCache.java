@@ -108,11 +108,7 @@ public class LRUCache {
     	node.pre = tail.pre;
     	tail.pre = node;
     	node.pre.next = node;
-		
-//		node.pre = tail.pre;
-//	        tail.pre = node;
-//	        node.pre.next = node;
-//	        node.next = tail;
+
 	}
 
 }
