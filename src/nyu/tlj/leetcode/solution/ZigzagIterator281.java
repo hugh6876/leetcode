@@ -1,6 +1,9 @@
 package nyu.tlj.leetcode.solution;
 
+import java.util.ArrayList;
+import java.util.Deque;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 class ZigzagIterator{}
@@ -12,6 +15,29 @@ public class ZigzagIterator281 {
 
 	}
 	
+	Deque<Iterator<Integer>> list = new LinkedList<Iterator<Integer>>();
+	
+	public ZigzagIterator(List<Integer> v1, List<Integer> v2) {
+		if(!v1.isEmpty()){
+			list.add(v1.iterator());
+		}
+		if( !v2.isEmpty() ){
+			list.add(v2.iterator());
+		}
+    }
+
+    public int next() {
+    	if(!hasNext()) return Integer.MIN_VALUE;//throw ex
+    	
+    	
+    }
+
+    public boolean hasNext() {
+        return !list.isEmpty();
+    }
+    
+    
+	/** 1 ****
 	Iterator<Integer> i, j, temp;
 	
 	
@@ -35,7 +61,7 @@ public class ZigzagIterator281 {
     }
 
     public boolean hasNext() {
-        return i.hasNext() | j.hasNext();
+        return i.hasNext() || j.hasNext();
     }
-
+*/
 }
