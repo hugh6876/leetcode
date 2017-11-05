@@ -17,19 +17,25 @@ public class ZigzagIterator281 {
 	
 	Deque<Iterator<Integer>> list = new LinkedList<Iterator<Integer>>();
 	
-	public ZigzagIterator(List<Integer> v1, List<Integer> v2) {
+	public ZigzagIterator281(List<Integer> v1, List<Integer> v2) {
 		if(!v1.isEmpty()){
-			list.add(v1.iterator());
+			list.addLast(v1.iterator());
 		}
 		if( !v2.isEmpty() ){
-			list.add(v2.iterator());
+			list.addLast(v2.iterator());
 		}
     }
 
     public int next() {
     	if(!hasNext()) return Integer.MIN_VALUE;//throw ex
     	
+    	Iterator<Integer> iterator = list.removeFirst();
     	
+    	int ret = iterator.next();
+    	if(iterator.hasNext()){
+    		list.addLast(iterator);
+    	}
+    	return ret;
     }
 
     public boolean hasNext() {
